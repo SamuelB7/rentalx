@@ -7,4 +7,10 @@ interface ICategoriesRepository {
     create(name: string, description: string): void
 }
 
-export { ICategoriesRepository }
+//DTO => Data transfer object
+interface ICreateCategoryDTO {
+    name: string
+    description: string
+}
+
+export { ICategoriesRepository, ICreateCategoryDTO }
