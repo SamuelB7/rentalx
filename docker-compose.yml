@@ -5,7 +5,7 @@ services:
         image: postgres
         container_name: database_ignite
         restart: always
-        ports:
+        ports: 
             - 5432:5432
         environment: 
             - POSTGRES_USER=docker
@@ -13,15 +13,17 @@ services:
             - POSTGRES_DB=rentx
         volumes: 
             - pgdata:/data/postgres 
+        
             
     app:
         build: .
         container_name: rentx
         restart: always
-        ports:
+        ports: 
             - 777:777
         volumes: 
             - .:/usr/app
+        
         
 
 volumes: 
