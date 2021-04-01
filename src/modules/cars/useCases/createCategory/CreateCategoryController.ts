@@ -7,13 +7,17 @@ class CreateCategoryController {
     
 
     async handle(request: Request, response: Response): Promise<Response> {
-        const { name, description } = request.body
+        try {
+            const { name, description } = request.body
 
-        const createCategoryUseCase = container.resolve(CreateCategoryUseCase)
+            const createCategoryUseCase = container.resolve(CreateCategoryUseCase)
 
-        await createCategoryUseCase.execute({name, description})
+            await createCategoryUseCase.execute({name, description})
 
-        return response.status(201).send()
+            return response.status(201).send()
+        } catch (error) {
+            return response.status(error.statusCode).json(error.message)
+        }
     }
 }
 
