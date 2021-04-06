@@ -12,7 +12,7 @@ class AuthenticateUserController {
 
             const token = await authenticateUserUsecase.excute({email, password})
 
-        return response.json(token)
+            return response.json(token)
         } catch (error) {
             return response.status(error.statusCode).json(error.message)
         }
