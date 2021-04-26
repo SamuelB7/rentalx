@@ -61,7 +61,7 @@ describe("List Cars", () => {
             name: "Car 3"
         })
 
-        console.log(cars)
+        
         
         expect(cars).toEqual([car])
     })
@@ -81,7 +81,7 @@ describe("List Cars", () => {
             category_id: "12345"
         })
 
-        console.log(cars)
+        
         
         expect(cars).toEqual([car])
     })
