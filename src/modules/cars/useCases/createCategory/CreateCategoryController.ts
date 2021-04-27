@@ -15,8 +15,9 @@ class CreateCategoryController {
             await createCategoryUseCase.execute({name, description})
 
             return response.status(201).send()
-        } catch (error) {
-            return response.status(error.statusCode).json(error.message)
+        } catch (AppError) {
+            //console.error(AppError)
+            return response.status(AppError.statusCode).json(AppError.message)
         }
     }
 }

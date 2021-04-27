@@ -12,8 +12,8 @@ class CreateUserController {
             await createUserUseCase.execute({name, email, password, driver_license})
 
             return response.status(201).send()
-        } catch (error) {
-            return response.status(error.statusCode).json(error.message)
+        } catch (AppError) {
+            return response.status(AppError.statusCode).json(AppError.message)
         }
     }
 }

@@ -15,7 +15,7 @@ class CreateCarController {
 
             return response.status(201).json(car)
         } catch (error) {
-            return response.status(error.statusCode).json(error.message)
+            return response.json(error.message)
         }
     }
 }
