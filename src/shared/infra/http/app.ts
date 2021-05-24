@@ -9,9 +9,11 @@ import { router } from './routes'
 import swaggerFile from '../../../swagger.json'
 import { AppError } from '../../errors/AppError'
 import upload from '../../../config/upload'
-
+import rateLimiter from "../http/middlewares/rateLimiter"
 
 const app = express()
+
+app.use(rateLimiter)
 
 app.use(express.json())
 
